@@ -162,14 +162,14 @@ html[dir=rtl] .portrait::before{inset:-12px}
 /* ---------- work ---------- */
 .head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:54px}
 .head p{color:var(--muted);max-width:40ch}
-.proj{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,4vw,60px);align-items:center;padding:clamp(22px,3.4vw,44px);border:1px solid var(--line);border-radius:28px;background:var(--card);margin-bottom:26px}
+.proj{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,4vw,60px);align-items:center;padding:clamp(22px,3.4vw,44px);border:1px solid var(--line);border-radius:28px;background:var(--card);margin-bottom:48px;box-shadow:0 34px 70px -46px rgba(0,0,0,.5)}
 .proj:nth-of-type(even) .shot{order:-1}
 @media(min-width:901px){
   #work .wrap{position:relative}
-  #work .proj{position:sticky;background:var(--card);box-shadow:0 34px 70px -46px rgba(0,0,0,.5)}
-  #work .proj:nth-of-type(1){top:92px}
-  #work .proj:nth-of-type(2){top:142px;margin-top:64px}
-  #work .proj:nth-of-type(3){top:192px;margin-top:64px}
+  #work .proj{position:sticky}
+  #work .proj:nth-of-type(1){top:96px}
+  #work .proj:nth-of-type(2){top:96px;margin-top:140px}
+  #work .proj:nth-of-type(3){top:96px;margin-top:140px;margin-bottom:320px}
 }
 .proj .no{font-family:var(--mono);font-size:13px;color:var(--acc)}
 .proj h3{font-size:clamp(26px,3.2vw,40px);margin:10px 0 6px}
@@ -204,7 +204,7 @@ html[lang=ar] .note{font-family:var(--sans);font-size:12.5px}
 .sheet .tabs{display:flex;gap:2px;background:#ebe7df;padding:5px 8px 0;font-size:10.5px}
 .sheet .tabs span{padding:5px 12px;border-radius:6px 6px 0 0;color:#6b645b}
 .sheet .tabs span.a{background:#fff;color:#14110f;font-weight:600}
-@media(max-width:900px){.proj{grid-template-columns:1fr}.proj .shot{order:-1!important}.steps li{grid-template-columns:1fr;gap:2px}}
+@media(max-width:900px){.proj{grid-template-columns:1fr;margin-bottom:90px}.proj .shot{order:-1!important}.steps li{grid-template-columns:1fr;gap:2px}}
 
 /* ---------- team ---------- */
 .team{background:var(--deep);color:var(--on-deep);border-radius:36px;margin-inline:clamp(8px,1.6vw,22px)}
