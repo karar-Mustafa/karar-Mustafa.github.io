@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karrar Mustafa — Team Leader & Tool Builder</title>
+<meta name="description" content="Karrar Mustafa — FTTH sales team leader in Baghdad managing 6 owners and ~60 field marketers, and builder of the tools his team runs on.">
+<meta property="og:title" content="Karrar Mustafa — I lead teams and build the tools they run on">
+<meta property="og:description" content="FTTH sales team leader · 6 owners · ~60 field marketers · founder of Ishtiraqi.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314110f'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23e4572e'/%3E%3Cg stroke='%23f3efe6' stroke-width='2'%3E%3Cpath d='M32 32 32 10M32 32 51 21M32 32 51 43M32 32 32 54M32 32 13 43M32 32 13 21'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3efe6; --card:#fbf9f4; --ink:#14110f; --muted:#6b645b; --line:rgba(20,17,15,.13);
+  --acc:#e4572e; --deep:#1b2a24; --on-deep:#f3efe6; --ok:#2f8f5b;
+  --sans:"Readex Pro",system-ui,"Segoe UI",Tahoma,sans-serif;
+  --serif:"Instrument Serif","Readex Pro",serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --w:1180px;
+}
+[data-theme=dark]{
+  --bg:#0f0e0c; --card:#191714; --ink:#f3efe6; --muted:#a39b8f; --line:rgba(243,239,230,.14);
+  --deep:#1a1815; --on-deep:#f3efe6;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip;transition:background .4s,color .4s}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+html[lang=ar] .en, html[lang=en] .ar{display:none!important}
+.wrap{width:min(var(--w),100% - 40px);margin-inline:auto}
+.mono{font-family:var(--mono);letter-spacing:.02em}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+.label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--acc)}
+html[lang=ar] .label{letter-spacing:0;font-family:var(--sans);font-size:14px}
+h1,h2,h3{font-weight:600;line-height:1.15;letter-spacing:-.02em}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3{letter-spacing:0;line-height:1.35}
+h2{font-size:clamp(30px,4.6vw,58px);max-width:18ch}
+html[lang=en] em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+em{font-style:normal;color:var(--acc)}
+section{padding:clamp(70px,10vw,130px) 0;position:relative;scroll-margin-top:70px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- intro ---------- */
+#intro{position:fixed;inset:0;z-index:100;background:#14110f;color:#f3efe6;display:grid;place-items:center;clip-path:circle(150% at 50% 50%);transition:clip-path 1.3s cubic-bezier(.76,0,.24,1);cursor:pointer;overflow:hidden}
+#intro.out{clip-path:circle(0% at 50% 50%)}
+#intro canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.35;pointer-events:none}
+#intro .stage{width:min(74vmin,540px);aspect-ratio:1;position:relative;transition:transform 1.5s cubic-bezier(.7,0,.2,1),opacity 1.5s;z-index:2}
+#intro.p2 .stage{transform:translateY(-27vh) scale(.36);opacity:.6}
+#intro svg{width:100%;height:100%;overflow:visible}
+#intro .count{position:absolute;inset:auto 0 -64px;text-align:center;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#a39b8f;transition:opacity .5s}
+#intro.p2 .count{opacity:0}
+#intro .count b{color:#f3efe6;font-weight:600;font-size:22px;margin-inline:6px;display:inline-block;min-width:2ch}
+#intro .nmin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.94);text-align:center;font-family:var(--serif);font-style:italic;font-size:clamp(26px,6.2vmin,54px);font-weight:400;line-height:1.08;letter-spacing:.01em;color:#f3efe6;background:radial-gradient(closest-side,rgba(20,17,15,.94) 46%,rgba(20,17,15,.62) 72%,rgba(20,17,15,0) 100%);padding:34px 62px;opacity:0;transition:opacity .9s,transform .9s;pointer-events:none;z-index:3;white-space:nowrap}
+#intro .nmin.on{opacity:1;transform:translate(-50%,-50%)}
+#intro.p2 .nmin{opacity:0;transition:opacity .3s}
+#intro .who{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;padding:16vh 20px 0;pointer-events:none;z-index:3}
+#intro .nm{font-size:clamp(40px,10vw,128px);font-weight:700;line-height:1.12;letter-spacing:-.03em}
+html[lang=ar] #intro .nm{letter-spacing:0}
+#intro .rl{font-family:var(--mono);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:#a39b8f;margin-top:16px;opacity:0;transform:translateY(10px);transition:.8s .7s}
+html[lang=ar] #intro .rl{font-family:var(--sans);letter-spacing:0;font-size:16px}
+#intro.p2 .rl{opacity:1;transform:none}
+#intro .ent{pointer-events:auto;margin-top:34px;border:1px solid rgba(243,239,230,.4);border-radius:999px;padding:13px 34px;color:#f3efe6;font-weight:500;opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s,background .25s,border-color .25s}
+#intro.p3 .ent{opacity:1;transform:none}
+#intro .ent:hover{background:var(--acc);border-color:var(--acc)}
+#intro .lbar{width:170px;height:2px;background:rgba(243,239,230,.16);margin-top:22px;opacity:0;transition:opacity .5s;direction:ltr}
+#intro.p3 .lbar{opacity:1}
+#intro .lbar i{display:block;height:100%;background:var(--acc);transform:scaleX(0);transform-origin:0 50%}
+#intro.p3 .lbar i{transition:transform 4.2s linear;transform:scaleX(1)}
+#intro .skip{position:absolute;bottom:22px;inset-inline-end:24px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#6b645b;text-transform:uppercase;z-index:4}
+body.lock{overflow:hidden}
+/* ---------- motion extras ---------- */
+#prog{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--acc);transform-origin:0 50%;transform:scaleX(0);z-index:70}
+html[dir=rtl] #prog{transform-origin:100% 50%}
+.w{display:inline-block;transform-origin:50% 100%;transform:perspective(700px) rotateX(-88deg) translateY(.25em);opacity:0;transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .5s;transition-delay:calc(var(--d,0s) + var(--i)*75ms)}
+.rv.in .w,.w.in{transform:none;opacity:1}
+.stat b{transform:perspective(600px) rotateX(88deg);transform-origin:50% 0;transition:transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0s) + .15s)}
+.stat.in b{transform:none}
+.stat{transition:background .3s}
+.stat:hover{background:color-mix(in srgb,var(--acc) 9%,transparent)}
+.proj.rv{transform:perspective(1400px) rotateX(16deg) translateY(70px) scale(.96);transform-origin:50% 0}
+.proj.rv.in{transform:none}
+.tl li.rv{transform:perspective(900px) rotateX(-40deg);transform-origin:50% 0}
+.tl li.rv.in{transform:none}
+.lk.rv{transform:perspective(800px) rotateY(50deg)}
+.lk.rv.in{transform:none}
+.bigmq{overflow:hidden;direction:ltr;padding:10px 0 50px}
+.bigmq div{display:flex;gap:.4em;width:max-content;animation:mq 46s linear infinite;font-size:clamp(64px,14vw,200px);font-weight:700;line-height:1.1;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px var(--ink);letter-spacing:-.03em}
+.bigmq span:nth-child(even){color:var(--acc);-webkit-text-stroke:0}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.7s}
+
+/* ---------- network svg ---------- */
+.net .ln{stroke:currentColor;stroke-width:1;fill:none;opacity:.35;stroke-dasharray:1;stroke-dashoffset:1}
+.net .ln.sp{opacity:.7;stroke-width:1.4}
+.net .nd{fill:currentColor;transform-box:fill-box;transform-origin:center;transform:scale(0)}
+.net .nd.me{fill:var(--acc)}
+.net .nd.ow{fill:var(--bg-net,currentColor)}
+.net .ring{fill:none;stroke:var(--acc);stroke-width:1.2;opacity:0}
+.net.go .ln{animation:draw .7s cubic-bezier(.6,0,.2,1) forwards;animation-delay:var(--d)}
+.net.go .nd{animation:pop .5s cubic-bezier(.3,1.6,.5,1) forwards;animation-delay:var(--d)}
+.net.go .ring{animation:pulse 2.6s ease-out infinite;animation-delay:.3s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{transform:scale(1)}}
+@keyframes pulse{0%{opacity:.8;r:9}100%{opacity:0;r:46}}
+.net g.grp{transition:opacity .3s}
+.net.hov g.grp:not(.on){opacity:.18}
+
+/* ---------- nav ---------- */
+header{position:fixed;top:14px;inset-inline:0;z-index:50;pointer-events:none}
+.nav{pointer-events:auto;display:flex;align-items:center;gap:18px;padding:8px 8px 8px 18px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+html[dir=rtl] .nav{padding:8px 18px 8px 8px}
+.logo{font-family:var(--mono);font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--acc)}
+.nav nav{display:flex;gap:22px;margin-inline:auto;font-size:14px;color:var(--muted)}
+.nav nav a:hover{color:var(--ink)}
+.tg{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:13px;font-family:var(--mono);font-weight:600}
+.tg:hover{background:var(--ink);color:var(--bg)}
+.tg.off{opacity:.45;text-decoration:line-through}
+.cta{background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap}
+.cta:hover{background:var(--acc);color:#fff}
+@media(max-width:820px){.nav{gap:9px}.nav nav{display:none}.nav .logo{margin-inline-end:auto}}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(120px,16vw,170px);padding-bottom:60px}
+.hero .grid{display:grid;grid-template-columns:1.35fr .8fr;gap:clamp(30px,5vw,70px);align-items:end}
+.hero h1{font-size:clamp(38px,6.6vw,92px);margin:22px 0 26px}
+.hero p.sub{font-size:clamp(16px,1.5vw,19px);color:var(--muted);max-width:52ch}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;border:1px solid var(--ink);font-weight:500;font-size:15px;transition:.25s}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--acc);border-color:var(--acc);color:#fff;transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+.portrait{position:relative;justify-self:end;width:min(100%,360px)}
+.portrait .ph{transition:transform .25s ease-out;aspect-ratio:4/5;border-radius:200px 200px 18px 18px;overflow:hidden;background:#d9d6cf;position:relative;z-index:1}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;transform:scale(1.16);filter:contrast(1.06) saturate(.92)}
+.portrait::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:1.5px solid var(--acc);border-radius:200px 200px 18px 18px}
+html[dir=rtl] .portrait::before{inset:14px 14px -14px -14px}
+.portrait .tag{position:absolute;z-index:2;bottom:22px;inset-inline-start:-22px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:9px;box-shadow:0 12px 30px -14px rgba(0,0,0,.35)}
+.portrait .tag i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 25%,transparent)}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr}.portrait{justify-self:start;width:min(72%,300px);order:-1}}
+
+/* ---------- stats ---------- */
+.stats{padding:0}
+.stats .row{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
+.stat{padding:34px 22px;border-inline-end:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat b{display:block;direction:ltr;unicode-bidi:isolate;font-family:var(--mono);font-weight:600;font-size:clamp(34px,4.6vw,60px);line-height:1;letter-spacing:-.03em}
+.stat b small{font-size:.45em;color:var(--acc);margin-inline-start:4px}
+.stat>span{display:block;margin-top:12px;color:var(--muted);font-size:14px;max-width:22ch}
+@media(max-width:760px){.stats .row{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-inline-end:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* ---------- marquee ---------- */
+.mq{overflow:hidden;border-bottom:1px solid var(--line);padding:16px 0;direction:ltr}
+.mq div{display:flex;gap:42px;width:max-content;animation:mq 38s linear infinite;font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.mq span::after{content:"·";margin-inline-start:42px;color:var(--acc)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- work ---------- */
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:54px}
+.head p{color:var(--muted);max-width:40ch}
+.proj{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,4vw,60px);align-items:center;padding:clamp(22px,3.4vw,44px);border:1px solid var(--line);border-radius:28px;background:var(--card);margin-bottom:26px}
+.proj:nth-of-type(even) .shot{order:-1}
+@media(min-width:901px){
+  #work .wrap{position:relative}
+  #work .proj{position:sticky;background:var(--card);box-shadow:0 34px 70px -46px rgba(0,0,0,.5)}
+  #work .proj:nth-of-type(1){top:92px}
+  #work .proj:nth-of-type(2){top:142px;margin-top:64px}
+  #work .proj:nth-of-type(3){top:192px;margin-top:64px}
+}
+.proj .no{font-family:var(--mono);font-size:13px;color:var(--acc)}
+.proj h3{font-size:clamp(26px,3.2vw,40px);margin:10px 0 6px}
+.proj .kind{color:var(--muted);font-size:14px;margin-bottom:22px}
+.steps{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.steps li{display:grid;grid-template-columns:104px 1fr;gap:14px;padding-top:14px;border-top:1px solid var(--line);font-size:15px}
+.steps li b{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:4px}
+html[lang=ar] .steps li b{font-family:var(--sans);font-size:13px;letter-spacing:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips span{font-family:var(--mono);font-size:11.5px;padding:5px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.proj .go{display:inline-flex;gap:8px;align-items:center;margin-top:24px;font-weight:600;border-bottom:1.5px solid var(--acc);padding-bottom:3px}
+.proj .go:hover{color:var(--acc)}
+.frame{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 30px 60px -34px rgba(0,0,0,.5);transition:transform .25s ease-out;will-change:transform}
+.frame .bar{height:34px;background:#ebe7df;display:flex;align-items:center;gap:6px;padding:0 13px;direction:ltr}
+.frame .bar i{width:9px;height:9px;border-radius:50%;background:#c9c3b8}
+.frame .bar u{margin-inline-start:10px;font-family:var(--mono);font-size:11px;color:#6b645b;text-decoration:none}
+.frame .view{aspect-ratio:16/10.4;overflow:hidden}
+.frame .view img{width:100%;height:100%;object-fit:cover;object-position:top}
+.frame .view.form img{object-position:top;transform:scale(1.95);transform-origin:50% 12%}
+.note{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:12px;display:flex;gap:8px;align-items:center}
+html[lang=ar] .note{font-family:var(--sans);font-size:12.5px}
+.note::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--muted)}
+/* sheet mock */
+.sheet{direction:ltr;font-family:var(--mono);font-size:11.5px;color:#14110f;background:#fff;height:100%;display:flex;flex-direction:column}
+.sheet table{border-collapse:collapse;width:100%;flex:1}
+.sheet th{background:#1b2a24;color:#f3efe6;font-weight:600;padding:9px 8px;text-align:center;font-size:10.5px}
+.sheet td{border:1px solid #e6e2d9;padding:7px 8px;text-align:center;white-space:nowrap}
+.sheet td.n{text-align:left}
+.sheet td.o{color:#b3401f;font-weight:600}
+.sheet td.t{background:#2f8f5b;color:#fff;font-weight:600}
+.sheet td.z{color:#b9b2a6}
+.sheet .tabs{display:flex;gap:2px;background:#ebe7df;padding:5px 8px 0;font-size:10.5px}
+.sheet .tabs span{padding:5px 12px;border-radius:6px 6px 0 0;color:#6b645b}
+.sheet .tabs span.a{background:#fff;color:#14110f;font-weight:600}
+@media(max-width:900px){.proj{grid-template-columns:1fr}.proj .shot{order:-1!important}.steps li{grid-template-columns:1fr;gap:2px}}
+
+/* ---------- team ---------- */
+.team{background:var(--deep);color:var(--on-deep);border-radius:36px;margin-inline:clamp(8px,1.6vw,22px)}
+.team .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.team .label,.team p{color:#a8b3ad}
+.team h2{margin:18px 0 22px}
+.team .net{color:#f3efe6;--bg-net:#f3efe6;width:100%;max-width:520px;margin-inline:auto;display:block;overflow:visible}
+.legend{display:grid;gap:12px;margin-top:30px;padding:0;list-style:none}
+.legend li{display:flex;gap:14px;align-items:baseline;padding-top:12px;border-top:1px solid rgba(243,239,230,.14)}
+.legend b{font-family:var(--mono);font-size:24px;min-width:3ch;color:#f3efe6}
+.legend span{color:#a8b3ad;font-size:15px}
+@media(max-width:860px){.team .grid{grid-template-columns:1fr}}
+
+/* ---------- capabilities (flip cards) ---------- */
+.caps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cap{height:270px;perspective:1100px;cursor:pointer}
+.cap .inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.3,1.4,.4,1)}
+.cap:hover .inner,.cap.fl .inner{transform:rotateY(180deg)}
+.cap .f,.cap .bk{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;padding:26px 22px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column}
+.cap .bk{transform:rotateY(180deg);background:var(--ink);color:var(--bg);border-color:var(--ink);justify-content:center}
+.cap .k{font-family:var(--mono);font-size:12px;color:var(--acc)}
+.cap h3{font-size:23px;margin-top:auto}
+.cap .hint{position:absolute;top:22px;inset-inline-end:22px;font-style:normal;font-size:18px;color:var(--muted);transition:transform .6s cubic-bezier(.3,1.4,.4,1)}
+.cap:hover .hint{transform:rotate(360deg) scale(1.3);color:var(--acc)}
+.cap p{font-size:15px;color:color-mix(in srgb,var(--bg) 82%,transparent)}
+.cap .bk::before{content:"";width:26px;height:3px;background:var(--acc);margin-bottom:16px}
+.cap .f{transition:box-shadow .3s}
+.cap:hover .f{box-shadow:0 20px 60px -20px color-mix(in srgb,var(--acc) 30%,transparent)}
+@media(max-width:980px){.caps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.caps{grid-template-columns:1fr}.cap{height:210px}}
+
+/* ---------- journey ---------- */
+.tl{list-style:none;padding:0;border-top:1px solid var(--line)}
+.tl li{display:grid;grid-template-columns:190px 1fr 1.2fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:padding .3s}
+.tl li:hover{padding-inline-start:14px}
+.tl time{font-family:var(--mono);font-size:13px;color:var(--muted);direction:ltr;text-align:start}
+html[dir=rtl] .tl time{text-align:end}
+html[dir=rtl] .stat b{text-align:right}
+.proj>*{min-width:0}
+html[lang=ar] .proj .no{font-family:var(--sans)}
+@media(max-width:560px){.sheet{font-size:10px}.sheet td,.sheet th{padding:6px 4px}}
+.tl h3{font-size:21px}
+.tl h3 small{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:4px;letter-spacing:0}
+.tl p{color:var(--muted);font-size:15px}
+.tl li.now h3::after{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-inline-start:10px;vertical-align:middle;box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 25%,transparent)}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.edu div{border:1px dashed var(--line);border-radius:20px;padding:24px}
+.edu h3{font-size:19px;margin:10px 0 6px}
+.edu p{color:var(--muted);font-size:14.5px}
+@media(max-width:820px){.tl li{grid-template-columns:1fr;gap:6px}html[dir=rtl] .tl time{text-align:start}.edu{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact h2{font-size:clamp(40px,8vw,120px);max-width:none}
+.links{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:54px}
+.lk{border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:34px;min-height:150px;transition:.3s;background:var(--card);text-align:start}
+.lk:hover{background:var(--acc);color:#fff;border-color:var(--acc);transform:translateY(-5px)}
+.lk:hover small{color:#ffe1d6}
+.lk small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.lk b{font-weight:500;font-size:16px;direction:ltr;word-break:break-word;margin-top:auto}
+html[dir=rtl] .lk b{text-align:right}
+@media(max-width:900px){.links{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.links{grid-template-columns:1fr}.lk{min-height:0;gap:16px}}
+footer{padding:26px 0 40px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line)}
+#toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:999px;font-size:14px;transition:.4s;z-index:60}
+#toast.on{transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.w,.stat b{opacity:1!important;transform:none!important}*{animation-duration:.01ms!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+
+/* ---------- glow & extra polish ---------- */
+.btn.p{box-shadow:0 0 0 0 color-mix(in srgb,var(--acc) 40%,transparent);transition:.25s,box-shadow .6s}
+.btn.p:hover{box-shadow:0 0 0 10px transparent}
+.stat:hover b{color:var(--acc)}
+.stat b{transition:color .3s}
+.lk:hover{box-shadow:0 20px 50px -20px color-mix(in srgb,var(--acc) 40%,transparent)}
+.proj:hover .frame{transform:perspective(900px) rotateX(-3deg) scale(1.02)}
+.tl li{transition:padding .3s,background .3s;border-radius:16px;padding-inline:0}
+.tl li:hover{background:color-mix(in srgb,var(--acc) 6%,transparent);padding-inline:16px}
+.portrait .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,color-mix(in srgb,var(--acc) 18%,transparent) 0%,transparent 50%);border-radius:inherit;pointer-events:none}
+@keyframes floatTag{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.portrait .tag{animation:floatTag 3s ease-in-out infinite}
+</style>
+</head>
+<body class="lock">
+
+<!-- intro -->
+<div id="intro">
+  <canvas id="pCanvas"></canvas>
+  <div class="stage">
+    <svg class="net" id="introNet" viewBox="0 0 600 600"></svg>
+    <div class="nmin" id="iNameIn">KARRAR<br>MUSTAFA<br>SALMAN</div>
+    <div class="count"><b id="cN">1</b><span id="cL"></span></div>
+  </div>
+  <div class="who">
+    <div class="nm" id="iName"></div>
+    <div class="rl" id="iRole"></div>
+    <button class="ent" id="iEnter"></button>
+    <div class="lbar"><i></i></div>
+  </div>
+  <span class="skip" id="iSkip">skip</span>
+</div>
+<div id="prog"></div>
+
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <a class="logo" href="#top"><i></i>KM</a>
+      <nav>
+        <a href="#work"><span class="ar">أعمالي</span><span class="en">Work</span></a>
+        <a href="#team"><span class="ar">الفريق</span><span class="en">Team</span></a>
+        <a href="#caps"><span class="ar">ماذا أقدّم</span><span class="en">What I do</span></a>
+        <a href="#journey"><span class="ar">المسار</span><span class="en">Journey</span></a>
+      </nav>
+      <button class="tg" id="lang" aria-label="Language"><span class="ar">EN</span><span class="en">ع</span></button>
+      <button class="tg" id="mode" aria-label="Theme">◐</button>
+      <button class="tg" id="snd" aria-label="Sound">♪</button>
+      <a class="cta" href="#contact"><span class="ar">تواصل معي</span><span class="en">Get in touch</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- hero -->
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <div class="label rv">
+        <span class="ar">كرار مصطفى · قائد فريق مبيعات FTTH · بغداد</span>
+        <span class="en">Karrar Mustafa · FTTH Sales Team Leader · Baghdad</span>
+      </div>
+      <h1 class="rv" style="--d:.08s">
+        <span class="ar">أقود الفرق،<br>وأبني <em>الأدوات</em> التي تجعلها تعمل أفضل.</span>
+        <span class="en">I lead teams — and build the <em>tools</em> that make them work better.</span>
+      </h1>
+      <p class="sub rv" style="--d:.16s">
+        <span class="ar">أدير شبكة مبيعات ميدانية من 6 أونرية ونحو 60 مسوّقاً لخدمة الكيبل الضوئي في إيرثلنك. وإلى جانب ذلك أتعلّم البرمجة وأبني أدوات حقيقية يعتمد عليها عملي كل يوم.</span>
+        <span class="en">I run a field sales network of 6 owners and around 60 marketers for Earthlink's fiber service. Alongside that, I'm learning to code and building real tools my work depends on every day.</span>
+      </p>
+      <div class="btns rv" style="--d:.24s">
+        <a class="btn p" href="#work"><span class="ar">شاهد أعمالي</span><span class="en">See my work</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+        <a class="btn" href="assets/Karrar-Mustafa-CV.pdf" download><span class="ar">تحميل السيرة</span><span class="en">Download CV</span></a>
+        <a class="btn" href="https://wa.me/9647801436410" target="_blank" rel="noopener"><span class="ar">واتساب مباشر</span><span class="en">WhatsApp me</span></a>
+      </div>
+    </div>
+    <div class="portrait rv" style="--d:.2s">
+      <div class="ph"><img src="assets/karrar.jpg" alt="Karrar Mustafa"></div>
+      <div class="tag"><i></i><span class="ar">منفتح على فرص جديدة</span><span class="en">Open to new opportunities</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- stats -->
+<section class="stats">
+  <div class="wrap">
+    <div class="row">
+      <div class="stat rv"><b><small style="margin:0 4px 0 0">~</small><span data-count="60">0</span></b><span><span class="ar">مسوّقاً ميدانياً ضمن الشبكة التي أديرها</span><span class="en">field marketers in the network I manage</span></span></div>
+      <div class="stat rv" style="--d:.08s"><b><span data-count="6">0</span></b><span><span class="ar">أونرية يتبعون لي مباشرة</span><span class="en">owners reporting directly to me</span></span></div>
+      <div class="stat rv" style="--d:.16s"><b>80–90<small>%</small></b><span><span class="ar">من التاركت الشهري، بثبات، على مستوى الشبكة كلها</span><span class="en">of monthly target, consistently, across the whole network</span></span></div>
+      <div class="stat rv" style="--d:.24s"><b><span data-count="3">0</span></b><span><span class="ar">أدوات بنيتها بنفسي وتُستخدم فعلياً</span><span class="en">tools I built myself that are in real use</span></span></div>
+    </div>
+  </div>
+  <div class="mq"><div id="mq"></div></div>
+</section>
+
+<!-- work -->
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="label rv"><span class="ar">أعمالي</span><span class="en">Selected work</span></div>
+        <h2 class="rv" style="margin-top:18px"><span class="ar">مشاكل من عملي، <em>حللتها بيدي</em>.</span><span class="en">Problems from my job, <em>solved by hand</em>.</span></h2>
+      </div>
+      <p class="rv"><span class="ar">كل مشروع هنا بدأ من مشكلة واجهتها فعلاً في إدارة المبيعات والمشتركين، ثم بنيت لها حلاً.</span><span class="en">Each project here started as a real problem I hit while managing sales and subscribers — then I built the fix.</span></p>
+    </div>
+
+    <article class="proj rv">
+      <div>
+        <div class="no">01 — <span class="ar">المؤسس والباني</span><span class="en">Founder &amp; builder</span></div>
+        <h3><span class="ar">اشتراكي</span><span class="en">Ishtiraqi</span></h3>
+        <div class="kind"><span class="ar">منصّة ويب لوكلاء الإنترنت ومشتركيهم · تطبيق الهاتف قيد العمل</span><span class="en">Web platform for internet agents and their subscribers · mobile app in progress</span></div>
+        <ul class="steps">
+          <li><b><span class="ar">المشكلة</span><span class="en">Problem</span></b><span><span class="ar">المشترك لا يعرف حالة خطّه فيتصل بالوكيل على كل شيء، والوكيل لا يعرف العطل إلا بعد اتصال أو زيارة.</span><span class="en">Subscribers can't see their line status so they call the agent for everything; the agent only learns about a fault after a call or a visit.</span></span></li>
+          <li><b><span class="ar">ما بنيته</span><span class="en">What I built</span></b><span><span class="ar">شاشة واحدة للمشترك: السرعة، قوة الإشارة (البور) لحظياً، حرارة الأجهزة، وطلب صيانة مباشر. وللوكيل: إعلانات للجميع أو لزون محدّد، وطلبات صيانة مرتّبة.</span><span class="en">One screen for the subscriber: speed, live signal power, device temperature and a direct maintenance request. For the agent: announcements to everyone or a single zone, and organised maintenance tickets.</span></span></li>
+          <li><b><span class="ar">النتيجة</span><span class="en">Outcome</span></b><span><span class="ar">اتصالات أقل على الوكيل، ومعرفة مكان الخلل عند المشترك دون أن يتصل.</span><span class="en">Fewer calls to the agent, and the fault is located without the subscriber having to phone in.</span></span></li>
+        </ul>
+        <a class="go" href="https://ishtiraqi.com" target="_blank" rel="noopener">ishtiraqi.com ↗</a>
+      </div>
+      <a class="shot" href="https://ishtiraqi.com" target="_blank" rel="noopener">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><u>ishtiraqi.com</u></div><div class="view"><img src="assets/ishtiraqi.png" alt="Ishtiraqi"></div></div>
+      </a>
+    </article>
+
+    <article class="proj rv">
+      <div>
+        <div class="no">02 — <span class="ar">أداة داخلية</span><span class="en">Internal tool</span></div>
+        <h3><span class="ar">منبّه انتهاء الاشتراك</span><span class="en">Subscription-end reminder</span></h3>
+        <div class="kind"><span class="ar">تطبيق ويب للمسوّقين مربوط بجدول بيانات وتنبيهات</span><span class="en">Web app for marketers, wired to a sheet and notifications</span></div>
+        <ul class="steps">
+          <li><b><span class="ar">المشكلة</span><span class="en">Problem</span></b><span><span class="ar">مشترك يقول «ليس الآن، عندي اشتراك لم ينتهِ». بعد شهرين لا أحد يتذكّره، فيضيع عميل كان جاهزاً.</span><span class="en">A prospect says "not now, my current plan hasn't ended." Two months later nobody remembers him, and a ready customer is lost.</span></span></li>
+          <li><b><span class="ar">ما بنيته</span><span class="en">What I built</span></b><span><span class="ar">نموذج بسيط يسجّل فيه المسوّق اسم المشترك ورقمه وتاريخ انتهاء اشتراكه والزون والموقع. البيانات تنزل تلقائياً في جدول عندي، ومنه يُرسل تنبيه للمسوّق على تيليغرام أو واتساب عند اقتراب الموعد.</span><span class="en">A simple form where the marketer logs the prospect's name, number, plan end date, zone and location. Data lands in my sheet automatically, and a Telegram or WhatsApp reminder goes to the marketer when the date approaches.</span></span></li>
+          <li><b><span class="ar">النتيجة</span><span class="en">Outcome</span></b><span><span class="ar">كل «ليس الآن» يتحوّل إلى موعد متابعة محفوظ بدل أن يُنسى.</span><span class="en">Every "not now" becomes a saved follow-up date instead of a forgotten one.</span></span></li>
+        </ul>
+        <div class="chips"><span>Google Apps Script</span><span>Google Sheets</span><span>Telegram</span><span>WhatsApp</span></div>
+      </div>
+      <div class="shot">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><u>apps script · web app</u></div><div class="view form"><img src="assets/reminder-form.png" alt="Reminder form"></div></div>
+      </div>
+    </article>
+
+    <article class="proj rv">
+      <div>
+        <div class="no">03 — <span class="ar">لوحة متابعة</span><span class="en">Reporting system</span></div>
+        <h3><span class="ar">جدول تقارير الفريق</span><span class="en">Team performance sheet</span></h3>
+        <div class="kind"><span class="ar">تقارير يومية وشهرية لكل مسوّق وأونر، بتحديث تلقائي</span><span class="en">Daily and monthly reporting per marketer and owner, auto-updating</span></div>
+        <ul class="steps">
+          <li><b><span class="ar">المشكلة</span><span class="en">Problem</span></b><span><span class="ar">متابعة نحو 60 مسوّقاً يومياً يدوياً تأكل الوقت وتؤخّر القرار.</span><span class="en">Tracking around 60 marketers by hand every day eats time and delays decisions.</span></span></li>
+          <li><b><span class="ar">ما بنيته</span><span class="en">What I built</span></b><span><span class="ar">جدول واحد يجمع كل مسوّق مع الأونر التابع له، أرقامه يوماً بيوم، ومجموعه الشهري — بأوراق مترابطة ومعادلات تحدّث نفسها.</span><span class="en">A single workbook listing every marketer with their owner, day-by-day numbers and monthly total — linked sheets and formulas that update themselves.</span></span></li>
+          <li><b><span class="ar">النتيجة</span><span class="en">Outcome</span></b><span><span class="ar">أرى من وصل ومن تأخّر في نظرة واحدة، وأتدخّل في اليوم نفسه.</span><span class="en">I see who's on track and who's behind at a glance, and step in the same day.</span></span></li>
+        </ul>
+        <div class="chips"><span>Google Sheets</span><span>Formulas</span><span>Linked sheets</span></div>
+      </div>
+      <div class="shot">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i><u>team report · sample</u></div>
+          <div class="view"><div class="sheet">
+            <table>
+              <tr><th>Agent</th><th>Owner</th><th>Total</th><th>1/8</th><th>2/8</th><th>3/8</th><th>4/8</th><th>5/8</th></tr>
+              <tbody id="sheetRows"></tbody>
+            </table>
+            <div class="tabs"><span class="a">Daily</span><span>Owners</span><span>Monthly</span><span>Target</span></div>
+          </div></div>
+        </div>
+        <div class="note"><span class="ar">بيانات تجريبية — الجدول الحقيقي يحتوي بيانات موظفين ولا يُنشر.</span><span class="en">Sample data — the real workbook holds staff data and is not published.</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- team -->
+<section class="team" id="team">
+  <div class="wrap grid">
+    <div>
+      <div class="label rv"><span class="ar">الفريق</span><span class="en">The network</span></div>
+      <h2 class="rv"><span class="ar">واحد ← ستة ← <em>ستون</em>.</span><span class="en">One → six → <em>sixty</em>.</span></h2>
+      <p class="rv"><span class="ar">هكذا يبدو عملي اليومي: أتابع ستة أونرية، وكل واحد منهم يقود نحو عشرة مسوّقين في الميدان. مرّر على أي أونر لترى فريقه.</span><span class="en">This is what my day looks like: I work with six owners, each leading about ten marketers in the field. Hover any owner to see their team.</span></p>
+      <ul class="legend rv">
+        <li><b>01</b><span><span class="ar">توزيع المهام ومتابعة التاركت يومياً</span><span class="en">Daily task distribution and target tracking</span></span></li>
+        <li><b>06</b><span><span class="ar">أونرية أدعمهم في حلّ مشاكل الطلبات والمشتركين</span><span class="en">Owners I support on order and customer issues</span></span></li>
+        <li><b>60</b><span><span class="ar">مسوّقاً تقريباً تُجمع أرقامهم في تقرير واحد</span><span class="en">Marketers, roughly, rolled into one report</span></span></li>
+      </ul>
+    </div>
+    <svg class="net" id="teamNet" viewBox="0 0 600 600"></svg>
+  </div>
+</section>
+
+<!-- capabilities -->
+<section id="caps">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="label rv"><span class="ar">ماذا أقدّم</span><span class="en">What I bring</span></div>
+        <h2 class="rv" style="margin-top:18px"><span class="ar">لست محصوراً في <em>المبيعات</em>.</span><span class="en">Not only a <em>sales</em> person.</span></h2>
+      </div>
+      <p class="rv"><span class="ar">المبيعات علّمتني كيف يعمل الميدان. الباقي بنيته فوقها.</span><span class="en">Sales taught me how the field really works. The rest I built on top of it.</span></p>
+    </div>
+    <div class="caps">
+      <div class="cap rv"><div class="inner"><div class="f"><div class="k">01</div><h3><span class="ar">قيادة الفرق</span><span class="en">Team leadership</span></h3><i class="hint">↻</i></div><div class="bk"><p><span class="ar">إدارة شبكة ميدانية متعدّدة المستويات، توزيع المهام، ومتابعة الأداء اليومي حتى تحقيق الهدف.</span><span class="en">Running a multi-level field network, assigning work and following daily performance through to target.</span></p></div></div></div>
+      <div class="cap rv" style="--d:.08s"><div class="inner"><div class="f"><div class="k">02</div><h3><span class="ar">العمليات والتقارير</span><span class="en">Operations &amp; reporting</span></h3><i class="hint">↻</i></div><div class="bk"><p><span class="ar">خبرة باك أوفيس في معالجة الطلبات، وتقارير دقيقة تحوّل الأرقام إلى قرار.</span><span class="en">Back-office experience processing requests, and accurate reports that turn numbers into decisions.</span></p></div></div></div>
+      <div class="cap rv" style="--d:.16s"><div class="inner"><div class="f"><div class="k">03</div><h3><span class="ar">بناء الأدوات</span><span class="en">Building tools</span></h3><i class="hint">↻</i></div><div class="bk"><p><span class="ar">متعلّم للبرمجة. أبني أدوات تحلّ مشاكل عملي: جداول مترابطة، Apps Script، وتطبيقات ويب.</span><span class="en">Learning to code. I build tools that fix my own work problems: linked sheets, Apps Script and web apps.</span></p></div></div></div>
+      <div class="cap rv" style="--d:.24s"><div class="inner"><div class="f"><div class="k">04</div><h3><span class="ar">التواصل بلغتين</span><span class="en">Bilingual communication</span></h3><i class="hint">↻</i></div><div class="bk"><p><span class="ar">بكالوريوس في الأدب الإنجليزي: كتابة وتواصل مهني بالعربية والإنجليزية مع العملاء والإدارة.</span><span class="en">BA in English literature: professional writing and communication in Arabic and English with customers and management.</span></p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- journey -->
+<section id="journey" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="label rv"><span class="ar">المسار المهني</span><span class="en">Journey</span></div>
+        <h2 class="rv" style="margin-top:18px"><span class="ar">من الميدان إلى <em>قيادة</em> الفريق.</span><span class="en">From the field to <em>leading</em> the team.</span></h2>
+      </div>
+    </div>
+    <ul class="tl">
+      <li class="now rv"><time>02/2025 — Present</time><h3><span class="ar">قائد فريق مبيعات FTTH</span><span class="en">Team Leader, FTTH B2C Sales</span><small>Earthlink</small></h3><p><span class="ar">قيادة شبكة من 6 أونرية ونحو 60 مسوّقاً، متابعة يومية، توزيع المهام، وتقارير أداء دقيقة.</span><span class="en">Leading a network of 6 owners and ~60 marketers: daily monitoring, task distribution and accurate performance reporting.</span></p></li>
+      <li class="rv"><time>08/2022 — 02/2025</time><h3><span class="ar">ممثل مبيعات FTTH</span><span class="en">FTTH B2C Sales Representative</span><small>Earthlink</small></h3><p><span class="ar">تحقيق الأهداف الشهرية، والتنسيق المباشر مع المشتركين والموزّعين لحلّ مشاكل الخدمة.</span><span class="en">Delivering monthly targets and coordinating directly with customers and distributors to resolve service issues.</span></p></li>
+      <li class="rv"><time>05/2022 — 08/2022</time><h3><span class="ar">موظف باك أوفيس</span><span class="en">Jr. Consumer Back-office Officer</span><small>Earthlink</small></h3><p><span class="ar">إدارة طلبات العملاء الواردة من الموزّعين ومعالجة الحالات المعقّدة في وقتها.</span><span class="en">Administering customer requests from distributors and resolving complex cases on time.</span></p></li>
+      <li class="rv"><time>12/2019 — 05/2020</time><h3><span class="ar">إدخال بيانات</span><span class="en">Data Entry</span><small>Lightning Express Delivery</small></h3><p><span class="ar">إدخال سريع ودقيق لطلبات العملاء مع تقليل الأخطاء.</span><span class="en">Fast, accurate entry of customer orders with minimal errors.</span></p></li>
+      <li class="rv"><time>02/2019 — 09/2019</time><h3><span class="ar">مندوب مبيعات ميداني</span><span class="en">Field Sales Officer</span><small>Alrafdain Cosmetics</small></h3><p><span class="ar">أول تجربة ميدانية: الترويج للمنتجات وبناء العلاقة مع العملاء.</span><span class="en">First field role: promoting products and building customer relationships.</span></p></li>
+    </ul>
+    <div class="edu">
+      <div class="rv"><div class="label"><span class="ar">التعليم</span><span class="en">Education</span></div><h3><span class="ar">بكالوريوس الأدب الإنجليزي</span><span class="en">BA, English Literature</span></h3><p><span class="ar">كلية التراث الجامعة، بغداد — 2020</span><span class="en">Al-Turath University College, Baghdad — 2020</span></p></div>
+      <div class="rv" style="--d:.1s"><div class="label"><span class="ar">أتعلّم الآن</span><span class="en">Currently learning</span></div><h3><span class="ar">البرمجة وبناء التطبيقات</span><span class="en">Programming &amp; app building</span></h3><p><span class="ar">أتعلّم بالتطبيق: كل ما أتعلّمه يتحوّل إلى أداة أستخدمها في عملي.</span><span class="en">Learning by doing: everything I pick up becomes a tool I actually use at work.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<div class="bigmq" aria-hidden="true"><div id="bigmq"></div></div>
+
+<!-- contact -->
+<section class="contact" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="label rv"><span class="ar">تواصل</span><span class="en">Contact</span></div>
+    <h2 class="rv" style="margin-top:18px"><span class="ar">عندك فرصة؟<br><em>لنتحدّث.</em></span><span class="en">Have a role in mind?<br><em>Let's talk.</em></span></h2>
+    <div class="links">
+      <a class="lk rv" href="https://wa.me/9647801436410" target="_blank" rel="noopener"><small>WhatsApp <span>↗</span></small><b>0780 143 6410</b></a>
+      <button class="lk rv" style="--d:.06s" id="mail"><small>Email <span><span class="ar">نسخ</span><span class="en">copy</span></span></small><b>kaldelfee@gmail.com</b></button>
+      <a class="lk rv" style="--d:.12s" href="https://www.linkedin.com/in/karrar-mustafa-3b8002347" target="_blank" rel="noopener"><small>LinkedIn <span>↗</span></small><b>karrar-mustafa</b></a>
+      <a class="lk rv" style="--d:.18s" href="https://github.com/karar-Mustafa" target="_blank" rel="noopener"><small>GitHub <span>↗</span></small><b>karar-Mustafa</b></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="wrap"><footer><span>Karrar Mustafa · Baghdad · 2026</span><a href="#top"><span class="ar">↑ إلى الأعلى</span><span class="en">↑ Back to top</span></a></footer></div>
+<div id="toast"></div>
+
+<script>
+(function(){
+  var root=document.documentElement, NS='http://www.w3.org/2000/svg';
+  var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+  /* language + theme */
+  function setLang(l){root.lang=l;root.dir=l==='ar'?'rtl':'ltr';store.set('km-lang',l);
+    document.title=l==='ar'?'كرار مصطفى — قائد فريق وباني أدوات':'Karrar Mustafa — Team Leader & Tool Builder'}
+  var q=new URLSearchParams(location.search).get('lang');
+  setLang(q==='ar'||q==='en'?q:(store.get('km-lang')||((navigator.language||'').indexOf('ar')===0?'ar':'en')));
+  document.getElementById('lang').onclick=function(){setLang(root.lang==='ar'?'en':'ar')};
+  function setMode(m){root.dataset.theme=m;store.set('km-mode',m)}
+  setMode(store.get('km-mode')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  document.getElementById('mode').onclick=function(){var m=root.dataset.theme==='dark'?'light':'dark';if(document.startViewTransition)document.startViewTransition(function(){setMode(m)});else setMode(m)};
+
+  /* particles on intro canvas */
+  (function(){
+    var cv=document.getElementById('pCanvas');if(!cv)return;
+    var ctx=cv.getContext('2d'),pts=[],running=true;
+    function resize(){cv.width=innerWidth;cv.height=innerHeight}resize();
+    addEventListener('resize',resize);
+    for(var i=0;i<80;i++)pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,
+      vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+.4,
+      o:Math.random()*.5+.1});
+    function frame(){if(!running)return;requestAnimationFrame(frame);
+      ctx.clearRect(0,0,cv.width,cv.height);
+      pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0)p.x=cv.width;if(p.x>cv.width)p.x=0;
+        if(p.y<0)p.y=cv.height;if(p.y>cv.height)p.y=0;
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.28);
+        ctx.fillStyle='rgba(228,87,46,'+p.o+')';ctx.fill()});
+      /* connect nearby */
+      for(var i=0;i<pts.length;i++)for(var j=i+1;j<pts.length;j++){
+        var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=dx*dx+dy*dy;
+        if(d<8000){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+          ctx.strokeStyle='rgba(243,239,230,'+(1-d/8000)*.07+')';ctx.stroke()}}}
+    frame();
+    document.getElementById('intro').addEventListener('intro-done',function(){running=false});
+  })();
+
+  /* network: 1 leader -> 6 owners -> 60 marketers */
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
+  function buildNet(svg,t0,k){k=k||1;
+    var cx=300,cy=300,R=150,r=62,spokes=el('g',{});svg.appendChild(spokes);
+    for(var i=0;i<6;i++){
+      var a=(i*60-90)*Math.PI/180, ox=cx+R*Math.cos(a), oy=cy+R*Math.sin(a);
+      var sp=el('path',{d:'M'+cx+' '+cy+'L'+ox+' '+oy,pathLength:1,'class':'ln sp'});sp.style.setProperty('--d',(t0+k*(.25+i*.07))+'s');spokes.appendChild(sp);
+      var g=el('g',{'class':'grp'});svg.appendChild(g);
+      for(var j=0;j<10;j++){
+        var b=a+(-1.75+j*(3.5/9)), mx=ox+r*Math.cos(b)*(j%2?1:1.42), my=oy+r*Math.sin(b)*(j%2?1:1.42), d=t0+k*(.95+i*.06+j*.035);
+        var l=el('path',{d:'M'+ox+' '+oy+'L'+mx+' '+my,pathLength:1,'class':'ln'});l.style.setProperty('--d',d+'s');g.appendChild(l);
+        var m=el('circle',{cx:mx,cy:my,r:3.4,'class':'nd'});m.style.setProperty('--d',(d+.25)+'s');g.appendChild(m);
+      }
+      var o=el('circle',{cx:ox,cy:oy,r:9,'class':'nd ow'});o.style.setProperty('--d',(t0+k*(.6+i*.07))+'s');g.appendChild(o);
+      var hit=el('circle',{cx:ox,cy:oy,r:95,fill:'transparent'});g.appendChild(hit);
+      (function(g){g.addEventListener('mouseenter',function(){svg.classList.add('hov');g.classList.add('on')});
+        g.addEventListener('mouseleave',function(){svg.classList.remove('hov');g.classList.remove('on')})})(g);
+    }
+    svg.appendChild(el('circle',{cx:cx,cy:cy,r:9,'class':'ring'}));
+    var me=el('circle',{cx:cx,cy:cy,r:13,'class':'nd me'});me.style.setProperty('--d',t0+'s');svg.appendChild(me);
+  }
+  buildNet(document.getElementById('teamNet'),0);
+
+  /* sound (synthesised, no files) */
+  var AC=null, sndOn=store.get('km-snd')!=='0', sndBtn=document.getElementById('snd');
+  function unlock(){if(!AC){var C=window.AudioContext||window.webkitAudioContext;if(C)AC=new C()}if(AC&&AC.state==='suspended')AC.resume()}
+  ['pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,unlock,{passive:true})});
+  function tone(f,d,type,g,to,at){if(!sndOn||!AC||AC.state!=='running')return;
+    var o=AC.createOscillator(),v=AC.createGain(),t=AC.currentTime+(at||0);o.type=type||'sine';
+    o.frequency.setValueAtTime(f,t);if(to)o.frequency.exponentialRampToValueAtTime(to,t+d);
+    v.gain.setValueAtTime(.0001,t);v.gain.exponentialRampToValueAtTime(g,t+.012);v.gain.exponentialRampToValueAtTime(.0001,t+d);
+    o.connect(v);v.connect(AC.destination);o.start(t);o.stop(t+d+.03)}
+  var S={
+    hover:function(){tone(680,.06,'sine',.025,1100);tone(820,.06,'sine',.015,1400,.02)},
+    click:function(){tone(220,.18,'triangle',.09,110);tone(440,.12,'sine',.04,0,.04)},
+    flip:function(){tone(260,.22,'sine',.06,980);tone(520,.18,'sine',.03,0,.12)},
+    on:function(){tone(523,.12,'sine',.06);tone(659,.18,'sine',.05,0,.1);tone(784,.26,'sine',.05,0,.2)},
+    stat:function(){tone(880,.05,'sine',.02,1200)},
+    enter:function(){
+      tone(196,.5,'sine',.07);tone(294,.55,'sine',.05,0,.1);
+      tone(392,.7,'sine',.05,0,.2);tone(523,.8,'sine',.04,0,.32)
+    }
+  };
+  function paintSnd(){sndBtn.classList.toggle('off',!sndOn)}paintSnd();
+  sndBtn.addEventListener('click',function(){sndOn=!sndOn;store.set('km-snd',sndOn?'1':'0');paintSnd();unlock();if(sndOn)S.on()});
+  var lastH=0;
+  function hov(sel,fn){document.querySelectorAll(sel).forEach(function(n){n.addEventListener('mouseenter',function(){var t=performance.now();if(t-lastH<70)return;lastH=t;fn()})})}
+  hov('a,button,.tl li,.proj',S.hover);hov('.cap',S.flip);hov('.stat',S.stat);
+  document.addEventListener('click',function(e){var c=e.target.closest('.cap');if(c){c.classList.toggle('fl');S.flip();return}
+    if(e.target.closest('a,button')&&!e.target.closest('#snd'))S.click()});
+
+  /* headline words flip in */
+  function split(rootEl){var i=0;(function walk(n){[].slice.call(n.childNodes).forEach(function(c){
+    if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;
+      if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(' '));return}
+      var w=document.createElement('span');w.className='w';w.style.setProperty('--i',i++);w.textContent=p;f.appendChild(w)});n.replaceChild(f,c)}
+    else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})})(rootEl)}
+  document.querySelectorAll('h1 .ar,h1 .en,h2 .ar,h2 .en').forEach(split);
+
+  /* big name band */
+  var bw=['KARRAR MUSTAFA','كرار مصطفى'],bb=[];for(var z=0;z<6;z++)bb=bb.concat(bw);
+  document.getElementById('bigmq').innerHTML=bb.map(function(w){return '<span>'+w+'</span>'}).join('');
+
+  /* scroll progress, tilt */
+  var prog=document.getElementById('prog');
+  addEventListener('scroll',function(){var h=document.documentElement;prog.style.transform='scaleX('+(h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight))+')'},{passive:true});
+  if(matchMedia('(hover:hover)').matches){
+    function tilt(host,target,amt){host.addEventListener('mousemove',function(e){var r=host.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        target.style.transform='perspective(900px) rotateY('+(x*amt)+'deg) rotateX('+(-y*amt)+'deg) translateZ(12px)'});
+      host.addEventListener('mouseleave',function(){target.style.transform=''})}
+    document.querySelectorAll('.proj').forEach(function(p){tilt(p,p.querySelector('.frame'),13)});
+    var po=document.querySelector('.portrait');tilt(po,po.querySelector('.ph'),16);
+  }
+
+  /* intro: network draws -> name -> enter */
+  var intro=document.getElementById('intro'), done=false, timers=[];
+  function later(f,ms){timers.push(setTimeout(f,ms))}
+  function endIntro(){if(done)return;done=true;timers.forEach(clearTimeout);unlock();setTimeout(S.enter,60);
+    var iv=document.getElementById('intro');iv.dispatchEvent(new Event('intro-done'));
+    iv.classList.add('out');document.body.classList.remove('lock');setTimeout(function(){iv.remove()},1400);startReveal()}
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce){intro.remove();document.body.classList.remove('lock');done=true;startReveal()}
+  else{
+    var iNet=document.getElementById('introNet');buildNet(iNet,.3,1.7);
+    var cN=document.getElementById('cN'),cL=document.getElementById('cL'),ar=root.lang==='ar';
+    cL.textContent=ar?'قائد':'leader';
+    if(ar){cL.style.fontFamily='var(--sans)';cL.style.letterSpacing='0';cL.style.fontSize='15px'}
+    var nm=document.getElementById('iName');nm.textContent=ar?'كرار مصطفى':'Karrar Mustafa';split(nm);
+    document.getElementById('iRole').textContent=ar?'قائد فريق · باني أدوات':'Team Leader · Tool Builder';
+    document.getElementById('iEnter').textContent=ar?'ادخل ←':'Enter →';
+    document.getElementById('iSkip').textContent=ar?'تخطّي':'skip';
+    later(function(){iNet.classList.add('go')},40);
+    later(function(){document.getElementById('iNameIn').classList.add('on')},3400);
+    later(function(){cN.textContent='6';cL.textContent=ar?'أونرية':'owners';S.on&&S.on()},1800);
+    later(function(){var n=6,t=setInterval(function(){n+=2;cN.textContent=n;if(n>=60)clearInterval(t)},28);timers.push(t);cL.textContent=ar?'مسوّقاً':'marketers'},3000);
+    later(function(){intro.classList.add('p2')},6200);
+    later(function(){nm.querySelectorAll('.w').forEach(function(w,i){setTimeout(function(){w.classList.add('in')},i*120)})},7000);
+    later(function(){intro.classList.add('p3')},8800);
+    later(endIntro,13000);
+    intro.addEventListener('click',endIntro);
+  }
+
+  /* reveals, counters */
+  function startReveal(){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;
+      e.target.classList.add('in');io.unobserve(e.target);
+      e.target.querySelectorAll('[data-count]').forEach(count);
+    })},{threshold:.15});
+    document.querySelectorAll('.rv').forEach(function(n){io.observe(n)});
+    var tn=document.getElementById('teamNet');
+    new IntersectionObserver(function(es,o){if(es[0].isIntersecting){tn.classList.add('go');o.disconnect()}},{threshold:.35}).observe(tn);
+  }
+  function count(n){var to=+n.dataset.count,s=performance.now();
+    (function f(t){var p=Math.min(1,(t-s)/1100);n.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(s)}
+
+  /* marquee */
+  var words=['Team Leadership','FTTH Sales','Operations','Reporting','Google Sheets','Apps Script','Problem Solving','Arabic · English','Field Networks','Product Thinking'];
+  var mq=document.getElementById('mq');mq.innerHTML=words.concat(words).map(function(w){return '<span>'+w+'</span>'}).join('');
+
+  /* sample sheet (dummy data) */
+  var rows=[['agent_01','Owner A',[3,4,2,5,4]],['agent_02','Owner A',[0,1,0,2,1]],['agent_03','Owner B',[6,11,10,7,9]],['agent_04','Owner B',[1,2,3,0,2]],['agent_05','Owner C',[7,1,5,4,6]],['agent_06','Owner C',[0,0,0,1,0]],['agent_07','Owner D',[3,4,1,2,5]],['agent_08','Owner D',[0,7,3,4,2]]];
+  document.getElementById('sheetRows').innerHTML=rows.map(function(r){var t=r[2].reduce(function(a,b){return a+b},0);
+    return '<tr><td class="n">'+r[0]+'</td><td class="o">'+r[1]+'</td><td class="t">'+t+'</td>'+r[2].map(function(v){return '<td'+(v?'':' class="z"')+'>'+v+'</td>'}).join('')+'</tr>'}).join('');
+
+  /* copy email */
+  var toast=document.getElementById('toast');
+  document.getElementById('mail').onclick=function(){var m='kaldelfee@gmail.com';
+    function ok(){toast.textContent=root.lang==='ar'?'تم نسخ البريد ✓':'Email copied ✓';toast.classList.add('on');setTimeout(function(){toast.classList.remove('on')},1800)}
+    if(navigator.clipboard)navigator.clipboard.writeText(m).then(ok,function(){location.href='mailto:'+m});else location.href='mailto:'+m};
+})();
+</script>
+</body>
+</html>
