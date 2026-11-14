@@ -70,7 +70,7 @@ html[lang=ar] #intro .rl{font-family:var(--sans);letter-spacing:0;font-size:16px
 #intro .lbar{width:170px;height:2px;background:rgba(243,239,230,.16);margin-top:22px;opacity:0;transition:opacity .5s;direction:ltr}
 #intro.p3 .lbar{opacity:1}
 #intro .lbar i{display:block;height:100%;background:var(--acc);transform:scaleX(0);transform-origin:0 50%}
-#intro.p3 .lbar i{transition:transform 4.2s linear;transform:scaleX(1)}
+#intro.p3 .lbar i{transition:transform 2.7s linear;transform:scaleX(1)}
 #intro .skip{position:absolute;bottom:22px;inset-inline-end:24px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#6b645b;text-transform:uppercase;z-index:4}
 body.lock{overflow:hidden}
 /* ---------- motion extras ---------- */
@@ -135,10 +135,10 @@ html[dir=rtl] .nav{padding:8px 18px 8px 8px}
 .btn:hover{background:var(--acc);border-color:var(--acc);color:#fff;transform:translateY(-2px)}
 .btn svg{width:18px;height:18px}
 .portrait{position:relative;justify-self:end;width:min(100%,360px)}
-.portrait .ph{transition:transform .25s ease-out;aspect-ratio:4/5;border-radius:200px 200px 18px 18px;overflow:hidden;background:#d9d6cf;position:relative;z-index:1}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;transform:scale(1.16);filter:contrast(1.06) saturate(.92)}
-.portrait::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:1.5px solid var(--acc);border-radius:200px 200px 18px 18px}
-html[dir=rtl] .portrait::before{inset:14px 14px -14px -14px}
+.portrait .ph{transition:transform .25s ease-out;aspect-ratio:4/5;border-radius:180px 180px 24px 24px;overflow:hidden;background:#d9d6cf;position:relative;z-index:1;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;transform:scale(1.08);filter:contrast(1.06) saturate(.92)}
+.portrait::before{content:"";position:absolute;inset:-12px;border:1.5px solid var(--acc);border-radius:190px 190px 32px 32px}
+html[dir=rtl] .portrait::before{inset:-12px}
 .portrait .tag{position:absolute;z-index:2;bottom:22px;inset-inline-start:-22px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:9px;box-shadow:0 12px 30px -14px rgba(0,0,0,.35)}
 .portrait .tag i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 25%,transparent)}
 @media(max-width:860px){.hero .grid{grid-template-columns:1fr}.portrait{justify-self:start;width:min(72%,300px);order:-1}}
@@ -343,13 +343,13 @@ footer{padding:26px 0 40px;color:var(--muted);font-size:13px;display:flex;justif
       <div class="btns rv" style="--d:.24s">
         <a class="btn p" href="#work"><span class="ar">شاهد أعمالي</span><span class="en">See my work</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-        <a class="btn" href="assets/Karrar-Mustafa-CV.pdf" download><span class="ar">تحميل السيرة</span><span class="en">Download CV</span></a>
+        <a class="btn" href="assets/Karrar-Mustafa-CV.pdf" target="_blank" rel="noopener"><span class="ar">عرض السيرة</span><span class="en">View CV</span></a>
         <a class="btn" href="https://wa.me/9647801436410" target="_blank" rel="noopener"><span class="ar">واتساب مباشر</span><span class="en">WhatsApp me</span></a>
       </div>
     </div>
     <div class="portrait rv" style="--d:.2s">
       <div class="ph"><img src="assets/karrar.jpg" alt="Karrar Mustafa"></div>
-      <div class="tag"><i></i><span class="ar">منفتح على فرص جديدة</span><span class="en">Open to new opportunities</span></div>
+      <div class="tag"><i></i><span class="ar">أبحث عن فرصة أفضل</span><span class="en">Looking for a better opportunity</span></div>
     </div>
   </div>
 </section>
@@ -642,7 +642,7 @@ footer{padding:26px 0 40px;color:var(--muted);font-size:13px;display:flex;justif
   var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(reduce){intro.remove();document.body.classList.remove('lock');done=true;startReveal()}
   else{
-    var iNet=document.getElementById('introNet');buildNet(iNet,.3,1.7);
+    var iNet=document.getElementById('introNet');buildNet(iNet,.3,1.3);
     var cN=document.getElementById('cN'),cL=document.getElementById('cL'),ar=root.lang==='ar';
     cL.textContent=ar?'قائد':'leader';
     if(ar){cL.style.fontFamily='var(--sans)';cL.style.letterSpacing='0';cL.style.fontSize='15px'}
@@ -651,12 +651,12 @@ footer{padding:26px 0 40px;color:var(--muted);font-size:13px;display:flex;justif
     document.getElementById('iEnter').textContent=ar?'ادخل ←':'Enter →';
     document.getElementById('iSkip').textContent=ar?'تخطّي':'skip';
     later(function(){iNet.classList.add('go')},40);
-    later(function(){cN.textContent='6';cL.textContent=ar?'أونرية':'owners';S.on&&S.on()},1800);
-    later(function(){var n=6,t=setInterval(function(){n+=2;cN.textContent=n;if(n>=60)clearInterval(t)},28);timers.push(t);cL.textContent=ar?'مسوّقاً':'marketers'},3000);
-    later(function(){intro.classList.add('p2')},6200);
-    later(function(){nm.querySelectorAll('.w').forEach(function(w,i){setTimeout(function(){w.classList.add('in')},i*120)})},1500);
-    later(function(){intro.classList.add('p3')},8800);
-    later(endIntro,13000);
+    later(function(){cN.textContent='6';cL.textContent=ar?'أونرية':'owners';S.on&&S.on()},1200);
+    later(function(){var n=6,t=setInterval(function(){n+=2;cN.textContent=n;if(n>=60)clearInterval(t)},28);timers.push(t);cL.textContent=ar?'مسوّقاً':'marketers'},2000);
+    later(function(){intro.classList.add('p2')},3300);
+    later(function(){nm.querySelectorAll('.w').forEach(function(w,i){setTimeout(function(){w.classList.add('in')},i*120)})},900);
+    later(function(){intro.classList.add('p3')},4500);
+    later(endIntro,7200);
     intro.addEventListener('click',endIntro);
   }
 
