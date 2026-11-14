@@ -90,7 +90,9 @@ html[dir=rtl] #prog{transform-origin:100% 50%}
 .lk.rv.in{transform:none}
 .bigmq{overflow:hidden;direction:ltr;padding:10px 0 50px}
 .bigmq div{display:flex;gap:.4em;width:max-content;animation:mq 46s linear infinite;font-size:clamp(64px,14vw,200px);font-weight:700;line-height:1.1;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px var(--ink);letter-spacing:-.03em}
-.bigmq span:nth-child(even){color:var(--acc);-webkit-text-stroke:0}
+.bigmq span:nth-child(even){-webkit-text-stroke-color:var(--acc)}
+html[lang=ar] .bigmq span:nth-child(odd){-webkit-text-stroke-color:var(--acc)}
+html[lang=ar] .bigmq span:nth-child(even){-webkit-text-stroke-color:var(--ink)}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.7s}
 
 /* ---------- network svg ---------- */
@@ -434,7 +436,6 @@ footer{padding:26px 0 40px;color:var(--muted);font-size:13px;display:flex;justif
             <div class="tabs"><span class="a">Daily</span><span>Owners</span><span>Monthly</span><span>Target</span></div>
           </div></div>
         </div>
-        <div class="note"><span class="ar">بيانات تجريبية — الجدول الحقيقي يحتوي بيانات موظفين ولا يُنشر.</span><span class="en">Sample data — the real workbook holds staff data and is not published.</span></div>
       </div>
     </article>
   </div>
@@ -505,12 +506,11 @@ footer{padding:26px 0 40px;color:var(--muted);font-size:13px;display:flex;justif
 <section class="contact" id="contact" style="padding-top:0">
   <div class="wrap">
     <div class="label rv"><span class="ar">تواصل</span><span class="en">Contact</span></div>
-    <h2 class="rv" style="margin-top:18px"><span class="ar">عندك فرصة؟<br><em>لنتحدّث.</em></span><span class="en">Have a role in mind?<br><em>Let's talk.</em></span></h2>
+    <h2 class="rv" style="margin-top:18px"><span class="ar">جاهز لفرصة جديدة<br><em>لنتحدّث.</em></span><span class="en">Ready for a new opportunity<br><em>Let's talk.</em></span></h2>
     <div class="links">
       <a class="lk rv" href="https://wa.me/9647801436410" target="_blank" rel="noopener"><small>WhatsApp <span>↗</span></small><b>0780 143 6410</b></a>
       <button class="lk rv" style="--d:.06s" id="mail"><small>Email <span><span class="ar">نسخ</span><span class="en">copy</span></span></small><b>kaldelfee@gmail.com</b></button>
       <a class="lk rv" style="--d:.12s" href="https://www.linkedin.com/in/karrar-mustafa-3b8002347" target="_blank" rel="noopener"><small>LinkedIn <span>↗</span></small><b>karrar-mustafa</b></a>
-      <a class="lk rv" style="--d:.18s" href="https://github.com/karar-Mustafa" target="_blank" rel="noopener"><small>GitHub <span>↗</span></small><b>karar-Mustafa</b></a>
     </div>
   </div>
 </section>
